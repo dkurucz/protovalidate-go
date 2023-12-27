@@ -404,6 +404,9 @@ func (l lib) validateEmail(addr string) bool {
 	}
 
 	parts := strings.SplitN(addr, "@", 2)
+	if strings.Contains(parts[1], "@") {
+		return false
+	}
 	if !strings.Contains(parts[1], ".") {
 		return false
 	}
