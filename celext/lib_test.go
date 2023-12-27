@@ -193,6 +193,18 @@ func TestCELLib(t *testing.T) {
 				"'foo@example.com    '.isEmail()",
 				false,
 			},
+			{
+				"'foo@example'.isEmail()",
+				false,
+			},
+			{
+				"'foo@.example'.isEmail()",
+				false,
+			},
+			{
+				"'foo@example.'.isEmail()",
+				false,
+			},
 		}
 
 		for _, tc := range tests {
